@@ -13,13 +13,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: yarn install, build
+      - name: npm install, build
         run: |
-          yarn install
-          yarn run build
+          npm install
+          npm run build
       - name: run Lighthouse CI
         run: |
-          yarn global add @lhci/cli@0.7.x
+          npm install -g @lhci/cli@0.7.x
           lhci autorun
         env:
           LHCI_BUILD_TOKEN: ${{ secrets.LHCI_BUILD_TOKEN }}
