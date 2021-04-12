@@ -11,6 +11,7 @@
     "build:webpack": "cross-env NODE_ENV=development webpack --config webpack.config.js",
     "build:webpack-with-mock-data": "cross-env USE_MOCK_DATA=true NODE_ENV=development webpack --config webpack.config.js",
     "fmt": "prettier --write 'src/**/*.{js,css}'",
+    "reg-suit": "reg-suit run",
     "serve": "nodemon --exec babel-node lib/server.js"
   },
   "devDependencies": {
