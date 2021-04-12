@@ -4,6 +4,7 @@
   "license": "Proprietary",
   "private": true,
   "scripts": {
+    "capture": "node capture.mjs",
     "clean": "rimraf dist",
     "build": "npm-run-all clean build:css build:webpack-with-mock-data",
     "build:css": "postcss src/app.css -d dist",
