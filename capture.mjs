@@ -44,4 +44,6 @@ try {
   await main()
 } catch {
   // processのkillによるエラーは握り潰す
+} finally {
+  process.exit(0) // 明示的に呼ばないとCI上で終了しないため
 }
