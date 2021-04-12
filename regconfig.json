@@ -1,0 +1,18 @@
+{
+  "core": {
+    "actualDir": "screenshot",
+    "ximgdiff": {
+      "invocationType": "client"
+    }
+  },
+  "plugins": {
+    "reg-keygen-git-hash-plugin": true,
+    "reg-notify-github-plugin": {
+      "clientId": "BcELCoAwCADQE4lb7tN1rAkTS4MFXb/3qJZUS6eEnxywHpEBk0/jd4ZD+KUumFvu+9YIb15sChY65Ac=",
+      "setCommitStatus": false
+    },
+    "reg-publish-s3-plugin": {
+      "bucketName": "reg-suit-for-web-speed-hackathon"
+    }
+  }
+}
