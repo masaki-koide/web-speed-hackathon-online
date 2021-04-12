@@ -4,6 +4,7 @@ jobs:
   lhci:
     name: Lighthouse
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     strategy:
       matrix:
         node-version: ['14.x']
@@ -27,6 +28,7 @@ jobs:
   reg-suit:
     name: reg-suit
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     strategy:
       matrix:
         node-version: ['14.x']
