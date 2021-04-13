@@ -5,6 +5,8 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const NODE_ENV = process.env.NODE_ENV
+
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'app.js'),
 
@@ -19,7 +21,7 @@ module.exports = {
 
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
       'process.env.USE_MOCK_DATA': JSON.stringify(process.env.USE_MOCK_DATA),
     }),
     new HtmlWebpackPlugin({
@@ -33,6 +35,7 @@ module.exports = {
     rules: [
       {
         test: /\.m?jsx?$/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
         },
@@ -41,6 +44,9 @@ module.exports = {
         test: /\.(png|svg|jpe?g|gif)$/,
         use: {
           loader: 'url-loader',
+          options: {
+            limit: 8192,
+          },
         },
       },
     ],
@@ -48,7 +54,7 @@ module.exports = {
 
   target: 'web',
 
-  devtool: 'inline-source-map',
+  devtool: NODE_ENV === 'production' ? false : 'inline-source-map',
 
-  mode: 'none',
+  mode: NODE_ENV,
 };
