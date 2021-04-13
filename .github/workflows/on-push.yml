@@ -34,6 +34,8 @@ jobs:
         node-version: ['14.x']
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
@@ -41,6 +43,10 @@ jobs:
       - name: workaround for detached HEAD
         run: |
           git checkout ${GITHUB_REF#refs/heads/} || git checkout -b ${GITHUB_REF#refs/heads/} && git pull
+      - name: Install ipafont
+        run: |
+          sudo apt-get update
+          sudo apt-get install fonts-ipafont-gothic
       - name: npm install, build, capture
         run: |
           npm install
