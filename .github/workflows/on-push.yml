@@ -45,8 +45,8 @@ jobs:
           git checkout ${GITHUB_REF#refs/heads/} || git checkout -b ${GITHUB_REF#refs/heads/} && git pull
       - name: Install ipafont
         run: |
-          apt-get update
-          apt-get install fonts-ipafont-gothic
+          sudo apt-get update
+          sudo apt-get install fonts-ipafont-gothic
       - name: npm install, build, capture
         run: |
           npm install
