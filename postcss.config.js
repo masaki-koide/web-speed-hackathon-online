@@ -5,6 +5,9 @@ const path = require('path');
 const importPlugin = require('postcss-import');
 const autoprefixer = require('autoprefixer');
 const customProperties = require('postcss-custom-properties');
+const calc = require('postcss-calc');
+const cssnano = require('cssnano');
+const purge = require('@fullhuman/postcss-purgecss');
 
 module.exports = {
   plugins: [
@@ -13,9 +16,17 @@ module.exports = {
     }),
 
     autoprefixer(),
+    
+    customProperties({ preserve: false }),
+    
+    calc(),
 
-    customProperties(),
+    purge({
+      content: ['./src/**/*.html', './src/**/*.jsx'],
+    }),
+
+    cssnano(),
   ],
 
-  map: true,
+  map: false,
 };
